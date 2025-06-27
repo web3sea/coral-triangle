@@ -13,6 +13,8 @@ import { LiveaboardSection } from "@/components/LiveaboardSection";
 import { CustomSolutionsSection } from "@/components/CustomSolutionsSection";
 import { ProgressiveContent } from "@/components/ProgressiveContent";
 import { useIsMobile } from "@/hooks/use-mobile";
+import '@n8n/chat/style.css';
+import { createChat } from '@n8n/chat';
 
 const ServiceCard = ({
   icon,
@@ -38,6 +40,12 @@ const ServiceCard = ({
 
 const Index = () => {
   const isMobile = useIsMobile();
+
+  React.useEffect(() => {
+    createChat({
+      webhookUrl: 'https://coraltriangle.app.n8n.cloud/webhook/0d471725-6805-476d-920d-644f1a8d1298/chat'
+    });
+  }, []);
 
   return (
     <div className="min-h-screen bg-entreprenology-bg text-white">
