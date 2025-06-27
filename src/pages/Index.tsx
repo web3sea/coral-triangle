@@ -17,6 +17,8 @@ import { LiveaboardSection } from "@/components/LiveaboardSection";
 import { CustomSolutionsSection } from "@/components/CustomSolutionsSection";
 import { ProgressiveContent } from "@/components/ProgressiveContent";
 import { useIsMobile } from "@/hooks/use-mobile";
+import '@n8n/chat/style.css';
+import { createChat } from '@n8n/chat';
 
 const ServiceCard = ({
   icon,
@@ -40,11 +42,17 @@ const ServiceCard = ({
 
 const Index = () => {
   const isMobile = useIsMobile();
-  
+
+  React.useEffect(() => {
+    createChat({
+      webhookUrl: 'https://coraltriangle.app.n8n.cloud/webhook/0d471725-6805-476d-920d-644f1a8d1298/chat'
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-entreprenology-bg text-white">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto text-center">
@@ -62,9 +70,9 @@ const Index = () => {
       <section className="py-16 px-4 bg-entreprenology-bg/90">
         <div className="container mx-auto">
           <div className="relative max-w-5xl mx-auto rounded-lg overflow-hidden shadow-2xl">
-            <img 
-              src="/lovable-uploads/fdd60cea-8784-43c0-b786-e0598236a0a6.png" 
-              alt="Coral Triangle Diving Map" 
+            <img
+              src="/lovable-uploads/fdd60cea-8784-43c0-b786-e0598236a0a6.png"
+              alt="Coral Triangle Diving Map"
               className="w-full h-auto object-cover"
             />
             {!isMobile && (
@@ -125,14 +133,14 @@ const Index = () => {
           <CustomSolutionsSection />
         </div>
       </section>
-      
+
       {/* Progressive Content Section */}
       <ProgressiveContent />
 
       {/* About Section */}
       <section id="about" className="py-20 px-4 relative">
         <div className="absolute inset-0 overflow-hidden">
-          <img 
+          <img
             src="/lovable-uploads/fdd60cea-8784-43c0-b786-e0598236a0a6.png"
             alt="Ocean Background"
             className="w-full h-full object-cover opacity-20 blur-sm"
