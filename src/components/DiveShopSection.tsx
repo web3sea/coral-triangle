@@ -13,7 +13,7 @@ export const DiveShopSection = () => (
     />
     <Card className="p-6 bg-entreprenology-bg border border-entreprenology-brickred/20 text-gray-300 shadow-lg backdrop-blur-sm">
       <div className="space-y-8">
-        <div className="bg-entreprenology-brickred/10 p-6 rounded-lg border border-entreprenology-brickred/20">
+        <div className="bg-entreprenology-brickred/5 p-6 rounded-lg border border-entreprenology-brickred/20">
           <h2 className="text-2xl font-bold text-entreprenology-brickred mb-4">✏️ Value Proposition</h2>
           <p className="text-lg">
             The AI-powered <strong>Guest Booking Assistant</strong> automates answers to 90% of common questions, dramatically reducing time spent on inquiries. The assistant engages with leads, learns about their dive plans (optionally adding data to the CRM), checks gear availability, and guides them toward making a deposit—streamlining the booking process while improving conversion rates.
