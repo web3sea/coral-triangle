@@ -2,7 +2,6 @@
 import { Store } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 import { Card } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 export const DiveShopSection = () => (
   <section className="mb-16">
@@ -124,74 +123,6 @@ export const DiveShopSection = () => (
             <div>
               <strong>Customer History:</strong> Maintain comprehensive records of certifications, experience, and equipment preferences.
             </div>
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-2xl font-semibold mb-4 text-entreprenology-brickred flex items-center gap-2">
-            📊 CRM
-          </h3>
-          
-          {/* First CRM Table */}
-          <h4 className="text-lg font-medium text-entreprenology-yellow mb-2">Customer Information</h4>
-          <div className="overflow-x-auto mb-8">
-            <Table className="w-full border-collapse">
-              <TableHeader className="bg-entreprenology-brickred/20">
-                <TableRow>
-                  <TableHead className="text-entreprenology-brickred">Created Date</TableHead>
-                  <TableHead className="text-entreprenology-brickred">Status</TableHead>
-                  <TableHead className="text-entreprenology-brickred">Lead Source</TableHead>
-                  <TableHead className="text-entreprenology-brickred">Full Name</TableHead>
-                  <TableHead className="text-entreprenology-brickred">Dive Dates</TableHead>
-                  <TableHead className="text-entreprenology-brickred">Group Size</TableHead>
-                  <TableHead className="text-entreprenology-brickred">Certification</TableHead>
-                  <TableHead className="text-entreprenology-brickred">Newsletter Date</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                <TableRow className="border-t border-entreprenology-brickred/20">
-                  <TableCell className="text-gray-300"></TableCell>
-                  <TableCell className="text-gray-300"></TableCell>
-                  <TableCell className="text-gray-300"></TableCell>
-                  <TableCell className="text-gray-300"></TableCell>
-                  <TableCell className="text-gray-300"></TableCell>
-                  <TableCell className="text-gray-300"></TableCell>
-                  <TableCell className="text-gray-300"></TableCell>
-                  <TableCell className="text-gray-300"></TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </div>
-
-          {/* Second CRM Table */}
-          <h4 className="text-lg font-medium text-entreprenology-yellow mb-2">Contact & Equipment Preferences</h4>
-          <div className="overflow-x-auto">
-            <Table className="w-full border-collapse">
-              <TableHeader className="bg-entreprenology-brickred/20">
-                <TableRow>
-                  <TableHead className="text-entreprenology-brickred">Email</TableHead>
-                  <TableHead className="text-entreprenology-brickred">WhatsApp</TableHead>
-                  <TableHead className="text-entreprenology-brickred">Instagram</TableHead>
-                  <TableHead className="text-entreprenology-brickred">Equipment Size</TableHead>
-                  <TableHead className="text-entreprenology-brickred">Profile Image</TableHead>
-                  <TableHead className="text-entreprenology-brickred">Dive Sites</TableHead>
-                  <TableHead className="text-entreprenology-brickred">Return Customer</TableHead>
-                  <TableHead className="text-entreprenology-brickred">Country</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                <TableRow className="border-t border-entreprenology-brickred/20">
-                  <TableCell className="text-gray-300"></TableCell>
-                  <TableCell className="text-gray-300"></TableCell>
-                  <TableCell className="text-gray-300"></TableCell>
-                  <TableCell className="text-gray-300"></TableCell>
-                  <TableCell className="text-gray-300"></TableCell>
-                  <TableCell className="text-gray-300"></TableCell>
-                  <TableCell className="text-gray-300"></TableCell>
-                  <TableCell className="text-gray-300"></TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
           </div>
         </div>
       </div>
