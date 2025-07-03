@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -67,22 +68,6 @@ export const ContactForm = () => {
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               variant="default"
-              className="w-full sm:w-auto bg-[#4DCC5B] hover:bg-[#4DCC5B]/90 text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
-              asChild
-            >
-              <a
-                href="https://wa.me/18133300617"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
-              >
-                <WhatsApp className="h-4 w-4" />
-                Connect on WhatsApp
-              </a>
-            </Button>
-
-            <Button
-              variant="default"
               className="w-full sm:w-auto bg-[#30A3E6] hover:bg-[#30A3E6]/90 text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
               asChild
             >
@@ -94,6 +79,22 @@ export const ContactForm = () => {
               >
                 <Telegram className="h-4 w-4" />
                 Connect on Telegram
+              </a>
+            </Button>
+
+            <Button
+              variant="default"
+              className="w-full sm:w-auto bg-[#4DCC5B] hover:bg-[#4DCC5B]/90 text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
+              asChild
+            >
+              <a
+                href="https://wa.me/18133300617"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2"
+              >
+                <WhatsApp className="h-4 w-4" />
+                Connect on WhatsApp
               </a>
             </Button>
 
