@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -19,26 +18,8 @@ export const ContactForm = () => {
 
           <div className="pt-4 border-t border-entreprenology-turquoise/20 mt-8">
             <p className="text-lg font-medium mb-4">
-              Book a 15-minute discovery call to discuss:
+              Contact us and our AI autoresponder will help answer your questions. Book a discovery call when you're ready to automate.
             </p>
-            <ul className="text-left max-w-md mx-auto space-y-2">
-              <li className="flex items-start">
-                <span className="text-entreprenology-coral mr-2">•</span>
-                <span>
-                  Which AI co-pilot is the right fit for your operations
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-entreprenology-coral mr-2">•</span>
-                <span>
-                  How our solutions can address your specific challenges
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-entreprenology-coral mr-2">•</span>
-                <span>Pricing and implementation timelines</span>
-              </li>
-            </ul>
           </div>
 
           <div className="pt-8 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
