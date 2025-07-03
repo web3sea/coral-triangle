@@ -65,68 +65,52 @@ export const ContactForm = () => {
             </ul>
           </div>
 
-          <div className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button
-              variant="default"
-              className="w-full sm:w-auto bg-[#30A3E6] hover:bg-[#30A3E6]/90 text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
-              asChild
-            >
+          <div className="pt-8 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
+            <div className="flex flex-col items-center">
               <a
                 href="https://t.me/CoralTriangleBot"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
+                className="w-24 h-24 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors duration-300 flex items-center justify-center group"
               >
-                <Telegram className="h-4 w-4" />
-                Connect on Telegram
+                <Telegram className="h-8 w-8 text-gray-700 group-hover:text-gray-900" />
               </a>
-            </Button>
+              <span className="mt-3 text-sm text-brand-cream/80">Telegram</span>
+            </div>
 
-            <Button
-              variant="default"
-              className="w-full sm:w-auto bg-[#4DCC5B] hover:bg-[#4DCC5B]/90 text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
-              asChild
-            >
+            <div className="flex flex-col items-center">
               <a
                 href="https://wa.me/18133300617"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
+                className="w-24 h-24 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors duration-300 flex items-center justify-center group"
               >
-                <WhatsApp className="h-4 w-4" />
-                Connect on WhatsApp
+                <WhatsApp className="h-8 w-8 text-gray-700 group-hover:text-gray-900" />
               </a>
-            </Button>
+              <span className="mt-3 text-sm text-brand-cream/80">WhatsApp</span>
+            </div>
 
-            <Button
-              variant="outline"
-              className="w-full sm:w-auto border-entreprenology-turquoise text-entreprenology-turquoise transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
-              asChild
-            >
+            <div className="flex flex-col items-center">
               <a
                 href="mailto:hello@coraltriangle.io"
-                className="inline-flex items-center gap-2"
+                className="w-24 h-24 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors duration-300 flex items-center justify-center group"
               >
-                <Mail className="h-4 w-4" />
-                Send an Email
+                <Mail className="h-8 w-8 text-gray-700 group-hover:text-gray-900" />
               </a>
-            </Button>
+              <span className="mt-3 text-sm text-brand-cream/80">Email</span>
+            </div>
 
-            <Button
-              variant="default"
-              className="w-full sm:w-auto bg-entreprenology-yellow hover:bg-entreprenology-yellow/90 text-entreprenology-bg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
-              asChild
-            >
+            <div className="flex flex-col items-center">
               <a
                 href="https://cal.com/coraltriangle-uat/discovery"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
+                className="w-24 h-24 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors duration-300 flex items-center justify-center group"
               >
-                <Calendar className="h-4 w-4" />
-                Book a Call
+                <Calendar className="h-8 w-8 text-gray-700 group-hover:text-gray-900" />
               </a>
-            </Button>
+              <span className="mt-3 text-sm text-brand-cream/80">Book a Call</span>
+            </div>
           </div>
         </div>
       </div>
