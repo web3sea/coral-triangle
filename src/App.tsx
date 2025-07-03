@@ -23,6 +23,7 @@ import SalesAdminCoPliot from "./pages/automations/SalesAdminCoPliot";
 import GuestInvoicingAssistant from "./pages/automations/GuestInvoicingAssistant";
 import VoiceAgentQualifier from "./pages/automations/VoiceAgentQualifier";
 import MarketingDripCampaign from "./pages/automations/MarketingDripCampaign";
+import { AppN8NChatBot } from "./components/features/app-n8n-chat-bot";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <AppN8NChatBot />
       <BrowserRouter>
         <div className="flex flex-col min-h-screen">
           <div className="flex-grow">
