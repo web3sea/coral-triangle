@@ -11,10 +11,10 @@ export const Footer = () => {
         <Link to="/" className="mb-4">
           <div className="flex items-center justify-center w-full">
             <img
-              src="/opengraph-image.png"
+              src="/lovable-uploads/49119e2c-66f2-4ce2-a86d-fe954978b34d.png"
               alt="Entreprenology Logo"
               className={`${
-                isMobile ? "w-full" : "h-12 w-auto"
+                isMobile ? "w-16 h-16" : "w-20 h-20"
               } object-contain`}
             />
           </div>
