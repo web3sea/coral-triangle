@@ -31,7 +31,11 @@ export const ContactForm = () => {
                 rel="noopener noreferrer"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
               >
-                <MessageSquare className="h-8 w-8 text-white stroke-1" />
+                <img 
+                  src="https://jsvtrbfvpaqdpvzzngci.supabase.co/storage/v1/object/public/images/telegram.png" 
+                  alt="Telegram"
+                  className="h-8 w-8"
+                />
               </a>
               <span className="mt-3 text-sm text-brand-cream/80">Telegram</span>
             </div>
