@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -31,7 +32,7 @@ export const ContactForm = () => {
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
               >
                 <img 
-                  src="/lovable-uploads/e1fae025-4bf2-4a74-9f99-67824532f2d1.png" 
+                  src="https://jsvtrbfvpaqdpvzzngci.supabase.co/storage/v1/object/public/images/telegram-icon.svg" 
                   alt="Telegram"
                   className="h-8 w-8"
                 />
@@ -47,7 +48,7 @@ export const ContactForm = () => {
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
               >
                 <img 
-                  src="/lovable-uploads/840a1e18-11c6-41b3-9cfb-513713edd397.png" 
+                  src="https://jsvtrbfvpaqdpvzzngci.supabase.co/storage/v1/object/public/images/whatsapp-icon.svg" 
                   alt="WhatsApp"
                   className="h-8 w-8"
                 />
