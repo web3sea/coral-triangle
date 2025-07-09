@@ -6,7 +6,7 @@ export const AppN8NChatBot = () => {
         createChat({
             webhookUrl: 'https://coraltriangle.app.n8n.cloud/webhook/0d471725-6805-476d-920d-644f1a8d1298/chat',
             initialMessages: [
-                'Hi there! 👋 I&apos;m an AI assistant of Coral Triangle. How can I help you today?',
+                'Hi 👋, I&apos;d be happy to help you. May I ask who I&apos;m speaking with today?',
             ],
             target: '#n8n-chat',
             mode: 'window',
