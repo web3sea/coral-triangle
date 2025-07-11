@@ -9,6 +9,7 @@ import CaseStudies from "./pages/CaseStudies";
 import NotFound from "./pages/NotFound";
 import Contact from "./pages/Contact";
 import Discovery from "./pages/Discovery";
+import Intake from "./pages/Intake";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 
@@ -51,6 +52,7 @@ const App = () => (
               <Route path="/agents/dive-resort" element={<DiveResortCoPliot />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/discovery" element={<Discovery />} />
+              <Route path="/intake" element={<Intake />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="*" element={<NotFound />} />
