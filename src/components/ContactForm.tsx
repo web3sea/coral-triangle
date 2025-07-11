@@ -1,8 +1,31 @@
 
-import React from "react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { Mail, MessageSquare, Calendar } from "lucide-react";
+
+const TelegramIcon = () => (
+  <svg
+    width="32"
+    height="32"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-8 w-8"
+  >
+    <path
+      d="M22 2L11 13"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M22 2L15 22L11 13L2 9L22 2Z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 export const ContactForm = () => {
   return (
@@ -31,11 +54,7 @@ export const ContactForm = () => {
                 rel="noopener noreferrer"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
               >
-                <img 
-                  src="https://jsvtrbfvpaqdpvzzngci.supabase.co/storage/v1/object/public/images/telegram.png" 
-                  alt="Telegram"
-                  className="h-8 w-8"
-                />
+                <TelegramIcon />
               </a>
               <span className="mt-3 text-sm text-brand-cream/80">Telegram</span>
             </div>
