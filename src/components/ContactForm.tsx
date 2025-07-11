@@ -73,8 +73,20 @@ export const ContactForm = () => {
 
             <div className="flex flex-col items-center">
               <a
-                href="mailto:hello@coraltriangle.io"
+                href="mailto:hello@coraltriangle.io?subject=Inquiry%20from%20Website&body=Hi%20Coral%20Triangle%20AI%20team,%0D%0A%0D%0AI'm%20interested%20in%20learning%20more%20about%20your%20AI%20automation%20services.%0D%0A%0D%0APlease%20contact%20me%20at%20your%20earliest%20convenience.%0D%0A%0D%0AThank%20you!"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
+                onClick={(e) => {
+                  console.log('Email link clicked');
+                  // Fallback: copy email to clipboard if mailto fails
+                  const email = 'hello@coraltriangle.io';
+                  try {
+                    navigator.clipboard.writeText(email).then(() => {
+                      console.log('Email copied to clipboard as fallback');
+                    });
+                  } catch (err) {
+                    console.log('Could not copy email to clipboard');
+                  }
+                }}
               >
                 <Mail className="h-8 w-8 text-white stroke-1" />
               </a>
