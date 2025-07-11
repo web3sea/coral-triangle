@@ -74,13 +74,7 @@ export const ContactForm = () => {
             <div className="flex flex-col items-center">
               <a
                 href="mailto:hello@coraltriangle.io"
-                target="_self"
-                rel="noopener"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
-                onClick={(e) => {
-                  // Ensure the mailto link works properly
-                  window.location.href = 'mailto:hello@coraltriangle.io';
-                }}
               >
                 <Mail className="h-8 w-8 text-white stroke-1" />
               </a>
