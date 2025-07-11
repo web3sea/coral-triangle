@@ -89,6 +89,17 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Company Description Section */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+              Coral Triangle AI is an AI automation agency that helps businesses streamline operations, boost lead generation, and scale intelligently using custom GPT-powered workflows and integrations. We specialize in building tailored automations across CRMs, task managers, and communication tools to eliminate manual work and unlock growth.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section
         id="services"
