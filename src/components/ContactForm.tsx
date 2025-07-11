@@ -77,15 +77,15 @@ export const ContactForm = () => {
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
                 onClick={(e) => {
                   console.log('Email link clicked');
-                  // Fallback: copy email to clipboard if mailto fails
-                  const email = 'hello@coraltriangle.io';
-                  try {
+                  // Let the mailto link try to open first, then fallback after a delay
+                  setTimeout(() => {
+                    const email = 'hello@coraltriangle.io';
                     navigator.clipboard.writeText(email).then(() => {
                       console.log('Email copied to clipboard as fallback');
+                    }).catch(() => {
+                      console.log('Could not copy email to clipboard');
                     });
-                  } catch (err) {
-                    console.log('Could not copy email to clipboard');
-                  }
+                  }, 1000);
                 }}
               >
                 <Mail className="h-8 w-8 text-white stroke-1" />
