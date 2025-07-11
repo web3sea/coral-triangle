@@ -4,6 +4,6 @@ import "./index.css";
 import { initSecurity } from "./utils/security";
 
 // Initialize security measures
-// initSecurity();
+initSecurity();
 
 createRoot(document.getElementById("root")!).render(<App />);
