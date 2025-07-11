@@ -33,6 +33,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <AppN8NChatBot />
       <BrowserRouter>
         <div className="flex flex-col min-h-screen">
           <div className="flex-grow">

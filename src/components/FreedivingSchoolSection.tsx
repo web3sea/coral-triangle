@@ -18,7 +18,7 @@ export const FreedivingSchoolSection = () => (
           <p className="text-lg">
             The AI-powered <strong>Guest Booking Assistant</strong> automates answers to 90% of common questions, dramatically reducing time spent on inquiries. The assistant engages with leads, learns about their travel plans (optionally adding data to the CRM), checks calendar availability, and guides them toward making a deposit—streamlining the booking process while improving conversion rates.
           </p>
-          
+
           <p className="text-lg font-medium text-entreprenology-yellow mt-8 mb-6">
             <strong>Major Pain Point</strong>: Freediving schools get flooded with Instagram DMs, WhatsApps, and emails asking about prices, class availability, skill requirements, etc.
           </p>
@@ -90,6 +90,73 @@ export const FreedivingSchoolSection = () => (
           </ul>
         </div>
 
+        <div>
+          <h3 className="text-2xl font-semibold mb-4 text-entreprenology-yellow flex items-center gap-2">
+            📊 CRM
+          </h3>
+
+          {/* First CRM Table */}
+          <h4 className="text-lg font-medium text-entreprenology-yellow mb-2">Student Information</h4>
+          <div className="overflow-x-auto mb-8 thin-scrollbar">
+            <Table className="w-full border-collapse">
+              <TableHeader className="bg-entreprenology-yellow/20">
+                <TableRow>
+                  <TableHead className="text-entreprenology-yellow">Created Date</TableHead>
+                  <TableHead className="text-entreprenology-yellow">Status</TableHead>
+                  <TableHead className="text-entreprenology-yellow">Lead Source</TableHead>
+                  <TableHead className="text-entreprenology-yellow">Full Name</TableHead>
+                  <TableHead className="text-entreprenology-yellow">Course Dates</TableHead>
+                  <TableHead className="text-entreprenology-yellow">Group Size</TableHead>
+                  <TableHead className="text-entreprenology-yellow">Current Level</TableHead>
+                  <TableHead className="text-entreprenology-yellow">Newsletter Date</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow className="border-t border-entreprenology-turquoise/20">
+                  <TableCell className="text-gray-300"></TableCell>
+                  <TableCell className="text-gray-300"></TableCell>
+                  <TableCell className="text-gray-300"></TableCell>
+                  <TableCell className="text-gray-300"></TableCell>
+                  <TableCell className="text-gray-300"></TableCell>
+                  <TableCell className="text-gray-300"></TableCell>
+                  <TableCell className="text-gray-300"></TableCell>
+                  <TableCell className="text-gray-300"></TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
+
+          {/* Second CRM Table */}
+          <h4 className="text-lg font-medium text-entreprenology-yellow mb-2">Contact & Personal Details</h4>
+          <div className="overflow-x-auto thin-scrollbar">
+            <Table className="w-full border-collapse">
+              <TableHeader className="bg-entreprenology-yellow/20">
+                <TableRow>
+                  <TableHead className="text-entreprenology-yellow">Email</TableHead>
+                  <TableHead className="text-entreprenology-yellow">WhatsApp</TableHead>
+                  <TableHead className="text-entreprenology-yellow">Instagram</TableHead>
+                  <TableHead className="text-entreprenology-yellow">Emergency Contact</TableHead>
+                  <TableHead className="text-entreprenology-yellow">Profile Image</TableHead>
+                  <TableHead className="text-entreprenology-yellow">Medical Info</TableHead>
+                  <TableHead className="text-entreprenology-yellow">Equipment Size</TableHead>
+                  <TableHead className="text-entreprenology-yellow">Country</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow className="border-t border-entreprenology-turquoise/20">
+                  <TableCell className="text-gray-300"></TableCell>
+                  <TableCell className="text-gray-300"></TableCell>
+                  <TableCell className="text-gray-300"></TableCell>
+                  <TableCell className="text-gray-300"></TableCell>
+                  <TableCell className="text-gray-300"></TableCell>
+                  <TableCell className="text-gray-300"></TableCell>
+                  <TableCell className="text-gray-300"></TableCell>
+                  <TableCell className="text-gray-300"></TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
+        </div>
       </div>
     </Card>
   </section>

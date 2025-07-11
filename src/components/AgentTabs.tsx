@@ -13,7 +13,7 @@ const agentPages = [
 export const AgentTabs = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const getCurrentTab = () => {
     const currentPage = agentPages.find(page => page.path === location.pathname);
     return currentPage?.value || "homestay";
@@ -28,12 +28,19 @@ export const AgentTabs = () => {
 
   return (
     <Tabs value={getCurrentTab()} onValueChange={handleTabChange} className="mb-8">
-      <TabsList className="grid w-full grid-cols-5 bg-entreprenology-bg/50 border border-entreprenology-turquoise/20">
+      <TabsList
+        className="
+    w-full items-center h-fit
+    bg-entreprenology-bg/50 border border-entreprenology-turquoise/20
+    flex overflow-x-auto overflow-y-hidden thin-scrollbar py-2
+    md:grid md:grid-cols-5 md:overflow-x-visible
+  "
+      >
         {agentPages.map((page) => (
-          <TabsTrigger 
-            key={page.value} 
+          <TabsTrigger
+            key={page.value}
             value={page.value}
-            className="data-[state=active]:bg-entreprenology-turquoise/20 data-[state=active]:text-entreprenology-turquoise text-gray-300 hover:text-white transition-colors"
+            className="min-w-[120px] whitespace-nowrap data-[state=active]:bg-entreprenology-turquoise/20 data-[state=active]:text-entreprenology-turquoise text-gray-300 hover:text-white transition-colors"
           >
             {page.label}
           </TabsTrigger>

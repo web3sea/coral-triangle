@@ -14,11 +14,11 @@ import {
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
-  
+
   const isActive = (path: string) => location.pathname === path;
   const isAutomationActive = () => location.pathname.includes("/automations/");
   const isAgentsActive = () => location.pathname.includes("/agents/");
-  
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -28,10 +28,10 @@ export const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center">
-            <img 
-              src="/lovable-uploads/cdb7213a-f7d2-4f38-bf6d-ea2a572528b6.png" 
-              alt="Entreprenology Logo" 
-              className="h-8 w-auto" 
+            <img
+              src="/lovable-uploads/cdb7213a-f7d2-4f38-bf6d-ea2a572528b6.png"
+              alt="Entreprenology Logo"
+              className="h-8 w-auto"
             />
           </Link>
 
@@ -53,28 +53,25 @@ export const Navbar = () => {
           <nav className="hidden md:flex space-x-6 items-center">
             <Link
               to="/"
-              className={`text-sm font-medium transition-colors hover:text-entreprenology-turquoise ${
-                isActive("/") ? "text-entreprenology-turquoise" : "text-white"
-              }`}
+              className={`text-sm font-medium transition-colors hover:text-entreprenology-turquoise ${isActive("/") ? "text-entreprenology-turquoise" : "text-white"
+                }`}
             >
               Home
             </Link>
-            
+
             {/* Case Studies Link */}
             <Link
               to="/case-studies"
-              className={`text-sm font-medium transition-colors hover:text-entreprenology-turquoise ${
-                isActive("/case-studies") ? "text-entreprenology-turquoise" : "text-white"
-              }`}
+              className={`text-sm font-medium transition-colors hover:text-entreprenology-turquoise ${isActive("/case-studies") ? "text-entreprenology-turquoise" : "text-white"
+                }`}
             >
               Case Studies
             </Link>
-            
+
             {/* Automations Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className={`flex items-center text-sm font-medium transition-colors hover:text-entreprenology-turquoise ${
-                isAutomationActive() ? "text-entreprenology-turquoise" : "text-white"
-              }`}>
+              <DropdownMenuTrigger className={`flex items-center text-sm font-medium transition-colors hover:text-entreprenology-turquoise ${isAutomationActive() ? "text-entreprenology-turquoise" : "text-white"
+                }`}>
                 Automations <ChevronDown className="ml-1 h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-entreprenology-bg border border-entreprenology-coral/40 text-white min-w-[160px]">
@@ -128,9 +125,8 @@ export const Navbar = () => {
 
             {/* Agents Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className={`flex items-center text-sm font-medium transition-colors hover:text-entreprenology-turquoise ${
-                isAgentsActive() || isActive("/agents") ? "text-entreprenology-turquoise" : "text-white"
-              }`}>
+              <DropdownMenuTrigger className={`flex items-center text-sm font-medium transition-colors hover:text-entreprenology-turquoise ${isAgentsActive() || isActive("/agents") ? "text-entreprenology-turquoise" : "text-white"
+                }`}>
                 Agents <ChevronDown className="ml-1 h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-entreprenology-bg border border-entreprenology-coral/40 text-white min-w-[160px]">
@@ -197,112 +193,102 @@ export const Navbar = () => {
           <div className="px-4 pt-2 pb-4 space-y-3">
             <Link
               to="/"
-              className={`block text-base font-medium ${
-                isActive("/") ? "text-entreprenology-turquoise" : "text-white"
-              }`}
+              className={`block text-base font-medium ${isActive("/") ? "text-entreprenology-turquoise" : "text-white"
+                }`}
               onClick={() => setMenuOpen(false)}
             >
               Home
             </Link>
-            
+
             {/* Case Studies Link in Mobile Menu */}
             <Link
               to="/case-studies"
-              className={`block text-base font-medium ${
-                isActive("/case-studies") ? "text-entreprenology-turquoise" : "text-white"
-              }`}
+              className={`block text-base font-medium ${isActive("/case-studies") ? "text-entreprenology-turquoise" : "text-white"
+                }`}
               onClick={() => setMenuOpen(false)}
             >
               Case Studies
             </Link>
-            
+
             {/* Mobile Automations Section */}
             <div className="space-y-2">
               <p className="text-base font-medium text-entreprenology-turquoise">Automations</p>
-              
+
               <div className="pl-4 space-y-2">
                 <Link
                   to="/automations/guest-booking-assistant"
-                  className={`block text-base font-medium ${
-                    isActive("/automations/guest-booking-assistant") ? "text-entreprenology-turquoise" : "text-white"
-                  }`}
+                  className={`block text-base font-medium ${isActive("/automations/guest-booking-assistant") ? "text-entreprenology-turquoise" : "text-white"
+                    }`}
                   onClick={() => setMenuOpen(false)}
                 >
                   Guest Booking Assistant
                 </Link>
-                
+
                 <Link
                   to="/automations/sales-admin"
-                  className={`block text-base font-medium ${
-                    isActive("/automations/sales-admin") ? "text-entreprenology-turquoise" : "text-white"
-                  }`}
+                  className={`block text-base font-medium ${isActive("/automations/sales-admin") ? "text-entreprenology-turquoise" : "text-white"
+                    }`}
                   onClick={() => setMenuOpen(false)}
                 >
                   Sales Administration
                 </Link>
-                
+
                 <Link
                   to="/automations/guest-invoicing"
-                  className={`block text-base font-medium ${
-                    isActive("/automations/guest-invoicing") ? "text-entreprenology-turquoise" : "text-white"
-                  }`}
+                  className={`block text-base font-medium ${isActive("/automations/guest-invoicing") ? "text-entreprenology-turquoise" : "text-white"
+                    }`}
                   onClick={() => setMenuOpen(false)}
                 >
                   Guest Invoicing Assistant
                 </Link>
-                
+
                 <Link
                   to="/automations/voice-agent-qualifier"
-                  className={`block text-base font-medium ${
-                    isActive("/automations/voice-agent-qualifier") ? "text-entreprenology-turquoise" : "text-white"
-                  }`}
+                  className={`block text-base font-medium ${isActive("/automations/voice-agent-qualifier") ? "text-entreprenology-turquoise" : "text-white"
+                    }`}
                   onClick={() => setMenuOpen(false)}
                 >
                   Voice Agent Qualifier
                 </Link>
-                
+
                 <Link
                   to="/automations/marketing-drip"
-                  className={`block text-base font-medium ${
-                    isActive("/automations/marketing-drip") ? "text-entreprenology-turquoise" : "text-white"
-                  }`}
+                  className={`block text-base font-medium ${isActive("/automations/marketing-drip") ? "text-entreprenology-turquoise" : "text-white"
+                    }`}
                   onClick={() => setMenuOpen(false)}
                 >
                   Marketing Drip Campaign
                 </Link>
               </div>
             </div>
-            
+
             {/* Mobile Agents Section */}
             <div className="space-y-2">
               <p className="text-base font-medium text-entreprenology-turquoise">Agents</p>
-              
+
               <div className="pl-4 space-y-2">
                 <Link
                   to="/agents/homestay"
-                  className={`block text-base font-medium ${
-                    isActive("/agents/homestay") ? "text-entreprenology-turquoise" : "text-white"
-                  }`}
+                  className={`block text-base font-medium ${isActive("/agents/homestay") ? "text-entreprenology-turquoise" : "text-white"
+                    }`}
                   onClick={() => setMenuOpen(false)}
                 >
                   Homestay
                 </Link>
-                
+
                 <Link
                   to="/agents/liveaboard"
-                  className={`block text-base font-medium ${
-                    isActive("/agents/liveaboard") ? "text-entreprenology-turquoise" : "text-white"
-                  }`}
+                  className={`block text-base font-medium ${isActive("/agents/liveaboard") ? "text-entreprenology-turquoise" : "text-white"
+                    }`}
                   onClick={() => setMenuOpen(false)}
                 >
                   Liveaboard
                 </Link>
-                
+
                 <Link
                   to="/agents/freediving"
-                  className={`block text-base font-medium ${
-                    isActive("/agents/freediving") ? "text-entreprenology-turquoise" : "text-white"
-                  }`}
+                  className={`block text-base font-medium ${isActive("/agents/freediving") ? "text-entreprenology-turquoise" : "text-white"
+                    }`}
                   onClick={() => setMenuOpen(false)}
                 >
                   Freediving
@@ -310,9 +296,8 @@ export const Navbar = () => {
 
                 <Link
                   to="/agents/dive-shop"
-                  className={`block text-base font-medium ${
-                    isActive("/agents/dive-shop") ? "text-entreprenology-turquoise" : "text-white"
-                  }`}
+                  className={`block text-base font-medium ${isActive("/agents/dive-shop") ? "text-entreprenology-turquoise" : "text-white"
+                    }`}
                   onClick={() => setMenuOpen(false)}
                 >
                   Dive Shop
@@ -320,18 +305,17 @@ export const Navbar = () => {
 
                 <Link
                   to="/agents/dive-resort"
-                  className={`block text-base font-medium ${
-                    isActive("/agents/dive-resort") ? "text-entreprenology-turquoise" : "text-white"
-                  }`}
+                  className={`block text-base font-medium ${isActive("/agents/dive-resort") ? "text-entreprenology-turquoise" : "text-white"
+                    }`}
                   onClick={() => setMenuOpen(false)}
                 >
                   Dive Resort
                 </Link>
               </div>
             </div>
-            
+
             <Link to="/contact" onClick={() => setMenuOpen(false)}>
-              <Button variant="default" className="bg-entreprenology-coral text-white hover:bg-entreprenology-coral/80 w-full">
+              <Button variant="default" className="mt-4 md:mt-0 bg-entreprenology-coral text-white hover:bg-entreprenology-coral/80 w-full">
                 Get In Touch
               </Button>
             </Link>
