@@ -13,7 +13,7 @@ const automationPages = [
 export const AutomationTabs = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const getCurrentTab = () => {
     const currentPage = automationPages.find(page => page.path === location.pathname);
     return currentPage?.value || "guest-booking-assistant";
@@ -28,12 +28,19 @@ export const AutomationTabs = () => {
 
   return (
     <Tabs value={getCurrentTab()} onValueChange={handleTabChange} className="mb-8">
-      <TabsList className="grid w-full grid-cols-5 bg-entreprenology-bg/50 border border-entreprenology-turquoise/20">
+      <TabsList
+        className="
+   items-center h-fit
+    bg-entreprenology-bg/50 border border-entreprenology-turquoise/20
+    flex flex-nowrap overflow-x-auto overflow-y-hidden thin-scrollbar py-2
+    md:grid md:grid-cols-5 md:w-full md:overflow-x-visible
+  "
+      >
         {automationPages.map((page) => (
-          <TabsTrigger 
-            key={page.value} 
+          <TabsTrigger
+            key={page.value}
             value={page.value}
-            className="data-[state=active]:bg-entreprenology-turquoise/20 data-[state=active]:text-entreprenology-turquoise text-gray-300 hover:text-white transition-colors"
+            className="tabs-trigger-custom min-w-[120px] whitespace-nowrap data-[state=active]:bg-entreprenology-turquoise/20 data-[state=active]:text-entreprenology-turquoise text-gray-300 hover:text-white transition-colors"
           >
             {page.label}
           </TabsTrigger>
