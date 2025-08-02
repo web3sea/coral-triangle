@@ -24,42 +24,60 @@ import SalesAdminCoPliot from "./pages/automations/SalesAdminCoPliot";
 import GuestInvoicingAssistant from "./pages/automations/GuestInvoicingAssistant";
 import VoiceAgentQualifier from "./pages/automations/VoiceAgentQualifier";
 import MarketingDripCampaign from "./pages/automations/MarketingDripCampaign";
+import mixpanel from "mixpanel-browser";
+import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <div className="flex flex-col min-h-screen">
-          <div className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
-              <Route path="/automations/guest-booking-assistant" element={<GuestBookingAssistant />} />
-              <Route path="/automations/sales-admin" element={<SalesAdminCoPliot />} />
-              <Route path="/automations/guest-invoicing" element={<GuestInvoicingAssistant />} />
-              <Route path="/automations/voice-agent-qualifier" element={<VoiceAgentQualifier />} />
-              <Route path="/automations/marketing-drip" element={<MarketingDripCampaign />} />
-              <Route path="/agents/homestay" element={<HomestayCoPliot />} />
-              <Route path="/agents/liveaboard" element={<LiveaboardCoPliot />} />
-              <Route path="/agents/freediving" element={<FreedivingCoPliot />} />
-              <Route path="/agents/dive-shop" element={<DiveShopCoPliot />} />
-              <Route path="/agents/dive-resort" element={<DiveResortCoPliot />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/discovery" element={<Discovery />} />
-              <Route path="/intake" element={<Intake />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-of-service" element={<TermsOfService />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+const MIXPANEL_CONFIG = {
+  debug: true,
+  track_pageview: true,
+  record_sessions_percent: 1,
+  record_heatmap_data: true,
+  autocapture: {
+    allow_url_regexes: [/^\/$/, /^\/contact$/]
+  },
+};
+
+const App = () => {
+  useEffect(() => {
+    mixpanel.init(import.meta.env.VITE_MIXPANEL_SECRET, MIXPANEL_CONFIG);
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <div className="flex flex-col min-h-screen">
+            <div className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/automations/guest-booking-assistant" element={<GuestBookingAssistant />} />
+                <Route path="/automations/sales-admin" element={<SalesAdminCoPliot />} />
+                <Route path="/automations/guest-invoicing" element={<GuestInvoicingAssistant />} />
+                <Route path="/automations/voice-agent-qualifier" element={<VoiceAgentQualifier />} />
+                <Route path="/automations/marketing-drip" element={<MarketingDripCampaign />} />
+                <Route path="/agents/homestay" element={<HomestayCoPliot />} />
+                <Route path="/agents/liveaboard" element={<LiveaboardCoPliot />} />
+                <Route path="/agents/freediving" element={<FreedivingCoPliot />} />
+                <Route path="/agents/dive-shop" element={<DiveShopCoPliot />} />
+                <Route path="/agents/dive-resort" element={<DiveResortCoPliot />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/discovery" element={<Discovery />} />
+                <Route path="/intake" element={<Intake />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-of-service" element={<TermsOfService />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </div>
           </div>
-        </div>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+}
 
 export default App;

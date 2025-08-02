@@ -1,5 +1,6 @@
 
 import { Mail, MessageSquare, Calendar } from "lucide-react";
+import mixpanel from "mixpanel-browser";
 
 const TelegramIcon = () => (
   <svg
@@ -28,6 +29,10 @@ const TelegramIcon = () => (
 );
 
 export const ContactForm = () => {
+  const onTrackLinkMeeting = () => {
+    mixpanel.track('Meeting Link Clicked', { link_name: 'Meeting Link' })
+  }
+
   return (
     <div className="w-full mx-auto">
       <div className="text-center">
@@ -95,6 +100,7 @@ export const ContactForm = () => {
 
             <div className="flex flex-col items-center">
               <a
+                onClick={onTrackLinkMeeting}
                 href="https://cal.com/coraltriangle-uat/discovery"
                 target="_blank"
                 rel="noopener noreferrer"
