@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ContactForm } from "@/components/ContactForm";
 import { HomestaySection } from "@/components/HomestaySection";
@@ -14,6 +14,7 @@ import { CustomSolutionsSection } from "@/components/CustomSolutionsSection";
 import { ProgressiveContent } from "@/components/ProgressiveContent";
 import { useIsMobile } from "@/hooks/use-mobile";
 import '@n8n/chat/style.css';
+import mixpanel from "mixpanel-browser";
 
 const ServiceCard = ({
   icon,
@@ -39,6 +40,19 @@ const ServiceCard = ({
 
 const Index = () => {
   const isMobile = useIsMobile();
+  const location = useLocation();
+
+  React.useEffect(() => {
+    if (location.pathname === "/") {
+      setTimeout(() => {
+        try {
+          mixpanel.track("Home Page Viewed", { page: "Home Page" });
+        } catch (error) {
+          console.warn("Mixpanel tracking failed:", error);
+        }
+      }, 100);
+    }
+  }, [location]);
 
   return (
     <div className="min-h-screen bg-entreprenology-bg text-white">
