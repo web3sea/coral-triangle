@@ -22,9 +22,8 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
-    Sitemap({ hostname: 'https://coraltriangle.io/' }),
+    mode === 'development' && componentTagger(),
+    mode === 'production' && Sitemap({ hostname: 'https://coraltriangle.io/' }),
   ].filter(Boolean),
   resolve: {
     alias: {
