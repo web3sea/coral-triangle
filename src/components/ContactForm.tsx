@@ -31,25 +31,14 @@ const TelegramIcon = () => (
 export const ContactForm = () => {
 
   const DEFAULT_LINK = {
-    MEETING: {
-      label: 'Book a Call',
-      value: 'https://cal.com/coraltriangle/hello',
-      link: 'https://cal.com/coraltriangle/hello'
-    },
-    WHATSAPP: {
-      label: 'WhatsApp',
-      value: '+1813-213-0349',
-      link: 'https://wa.me/18132130349'
-    },
-    EMAIL: {
-      label: 'Email',
-      value: 'hello@coraltriangle.io',
-      link: 'mailto:hello@coraltriangle.io'
-    }
+    MEETING: 'https://cal.com/coraltriangle/hello',
+    TELEGRAM: 'https://t.me/CoralTriangleBot',
+    WHATSAPP: 'https://wa.me/18132130349',
+    EMAIL: 'hello@coraltriangle.io'
   }
 
   const onTrackLinkMeeting = () => {
-    mixpanel.track('Meeting Link Clicked', { link_name: DEFAULT_LINK.MEETING.label })
+    mixpanel.track('Meeting Link Clicked', { link_name: DEFAULT_LINK.MEETING })
   }
 
   return (
@@ -85,7 +74,7 @@ export const ContactForm = () => {
 
             <div className="flex flex-col items-center">
               <a
-                href={DEFAULT_LINK.WHATSAPP.link}
+                href={DEFAULT_LINK.WHATSAPP}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
@@ -93,18 +82,17 @@ export const ContactForm = () => {
                 <MessageSquare className="h-8 w-8 text-white stroke-1" />
               </a>
               <span className="mt-3 text-sm text-brand-cream/80">WhatsApp</span>
-              <span className="text-sm text-brand-cream/80">{DEFAULT_LINK.WHATSAPP.value}</span>
             </div>
 
             <div className="flex flex-col items-center">
               <a
-                href={`mailto:${DEFAULT_LINK.EMAIL.value}?subject=Inquiry%20from%20Website&body=Hi%20Coral%20Triangle%20AI%20team,%0D%0A%0D%0AI'm%20interested%20in%20learning%20more%20about%20your%20AI%20automation%20services.%0D%0A%0D%0APlease%20contact%20me%20at%20your%20earliest%20convenience.%0D%0A%0D%0AThank%20you!`}
+                href={`mailto:${DEFAULT_LINK.EMAIL}?subject=Inquiry%20from%20Website&body=Hi%20Coral%20Triangle%20AI%20team,%0D%0A%0D%0AI'm%20interested%20in%20learning%20more%20about%20your%20AI%20automation%20services.%0D%0A%0D%0APlease%20contact%20me%20at%20your%20earliest%20convenience.%0D%0A%0D%0AThank%20you!`}
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
                 onClick={(e) => {
                   console.log('Email link clicked');
                   // Let the mailto link try to open first, then fallback after a delay
                   setTimeout(() => {
-                    const email = DEFAULT_LINK.EMAIL.value;
+                    const email = DEFAULT_LINK.EMAIL;
                     navigator.clipboard.writeText(email).then(() => {
                       console.log('Email copied to clipboard as fallback');
                     }).catch(() => {
@@ -116,13 +104,12 @@ export const ContactForm = () => {
                 <Mail className="h-8 w-8 text-white stroke-1" />
               </a>
               <span className="mt-3 text-sm text-brand-cream/80">Email</span>
-              <span className="text-sm text-brand-cream/80">{DEFAULT_LINK.EMAIL.value}</span>
             </div>
 
             <div className="flex flex-col items-center">
               <a
                 onClick={onTrackLinkMeeting}
-                href={DEFAULT_LINK.MEETING.link}
+                href={DEFAULT_LINK.MEETING}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
@@ -130,7 +117,6 @@ export const ContactForm = () => {
                 <Calendar className="h-8 w-8 text-white stroke-1" />
               </a>
               <span className="mt-3 text-sm text-brand-cream/80">Book a Call</span>
-              <span className="text-sm text-brand-cream/80">{DEFAULT_LINK.MEETING.value}</span>
             </div>
           </div>
         </div>

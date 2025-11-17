@@ -12,7 +12,6 @@ import { FreedivingSchoolSection } from "@/components/FreedivingSchoolSection";
 import { LiveaboardSection } from "@/components/LiveaboardSection";
 import { CustomSolutionsSection } from "@/components/CustomSolutionsSection";
 import { ProgressiveContent } from "@/components/ProgressiveContent";
-import { NewsletterModal } from "@/components/NewsletterModal";
 import { useIsMobile } from "@/hooks/use-mobile";
 import '@n8n/chat/style.css';
 import mixpanel from "mixpanel-browser";
@@ -42,7 +41,6 @@ const ServiceCard = ({
 const Index = () => {
   const isMobile = useIsMobile();
   const location = useLocation();
-  const [isNewsletterOpen, setIsNewsletterOpen] = React.useState(false);
 
   React.useEffect(() => {
     if (location.pathname === "/") {
@@ -102,19 +100,6 @@ const Index = () => {
               </div>
             )}
           </div>
-        </div>
-      </section>
-
-      {/* Newsletter Subscription Section */}
-      <section className="py-12 px-4">
-        <div className="container mx-auto text-center">
-          <Button
-            onClick={() => setIsNewsletterOpen(true)}
-            size="lg"
-            className="bg-entreprenology-turquoise hover:bg-entreprenology-turquoise/90 text-white font-semibold px-8 py-6 text-lg"
-          >
-            Subscribe to Our Coral Reef Conservation Newsletter
-          </Button>
         </div>
       </section>
 
@@ -248,8 +233,6 @@ const Index = () => {
           </Link>
         </div>
       </section>
-
-      <NewsletterModal open={isNewsletterOpen} onOpenChange={setIsNewsletterOpen} />
 
       <Footer />
     </div>
