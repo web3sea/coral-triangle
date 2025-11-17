@@ -7,204 +7,20 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instantiate createClient with right options
+  // Allows to automatically instanciate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "12.2.12 (cd3cf9e)"
+    PostgrestVersion: "12.2.3 (519615d)"
   }
   public: {
     Tables: {
-      ct_newsletter_subscribers: {
-        Row: {
-          created_at: string
-          email: string
-          id: string
-          name: string
-        }
-        Insert: {
-          created_at?: string
-          email: string
-          id?: string
-          name: string
-        }
-        Update: {
-          created_at?: string
-          email?: string
-          id?: string
-          name?: string
-        }
-        Relationships: []
-      }
-      followup_trackers: {
-        Row: {
-          created_at: string
-          hubspot_contact_id: string | null
-          hubspot_deal_id: string | null
-          id: string
-          last_email_id: string | null
-          last_followup_sent_at: string | null
-          lead_email: string
-          status: string
-          thread_id: string
-          updated_at: string
-        }
-        Insert: {
-          created_at?: string
-          hubspot_contact_id?: string | null
-          hubspot_deal_id?: string | null
-          id?: string
-          last_email_id?: string | null
-          last_followup_sent_at?: string | null
-          lead_email: string
-          status: string
-          thread_id: string
-          updated_at?: string
-        }
-        Update: {
-          created_at?: string
-          hubspot_contact_id?: string | null
-          hubspot_deal_id?: string | null
-          id?: string
-          last_email_id?: string | null
-          last_followup_sent_at?: string | null
-          lead_email?: string
-          status?: string
-          thread_id?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      sent_emails: {
-        Row: {
-          company_name: string | null
-          created_at: string
-          email_address: string
-          icebreaker: string | null
-          id: string
-          phone: string | null
-          sent_at: string
-          subject: string | null
-          updated_at: string
-        }
-        Insert: {
-          company_name?: string | null
-          created_at?: string
-          email_address: string
-          icebreaker?: string | null
-          id?: string
-          phone?: string | null
-          sent_at?: string
-          subject?: string | null
-          updated_at?: string
-        }
-        Update: {
-          company_name?: string | null
-          created_at?: string
-          email_address?: string
-          icebreaker?: string | null
-          id?: string
-          phone?: string | null
-          sent_at?: string
-          subject?: string | null
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      webchat_check_flags: {
-        Row: {
-          created_at: string
-          id: string
-          is_summary: boolean
-          updated_at: string
-        }
-        Insert: {
-          created_at?: string
-          id: string
-          is_summary?: boolean
-          updated_at?: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          is_summary?: boolean
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      whatsapp_check_flags: {
-        Row: {
-          created_at: string
-          id: string
-          is_summary: boolean
-          updated_at: string
-        }
-        Insert: {
-          created_at?: string
-          id: string
-          is_summary?: boolean
-          updated_at?: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          is_summary?: boolean
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      whatsapp_messages: {
-        Row: {
-          contact_name: string | null
-          created_at: string
-          direction: string
-          from_number: string
-          id: number
-          log_id: string
-          message_body: string | null
-          message_id: string
-          message_type: string
-          raw_payload: Json | null
-          to_number: string
-          wa_id: string
-        }
-        Insert: {
-          contact_name?: string | null
-          created_at?: string
-          direction: string
-          from_number: string
-          id?: never
-          log_id: string
-          message_body?: string | null
-          message_id: string
-          message_type: string
-          raw_payload?: Json | null
-          to_number: string
-          wa_id: string
-        }
-        Update: {
-          contact_name?: string | null
-          created_at?: string
-          direction?: string
-          from_number?: string
-          id?: never
-          log_id?: string
-          message_body?: string | null
-          message_id?: string
-          message_type?: string
-          raw_payload?: Json | null
-          to_number?: string
-          wa_id?: string
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      sms_check_flag: { Args: { p_id: string }; Returns: boolean }
-      webchat_check_flag: { Args: { p_id: string }; Returns: boolean }
-      whatsapp_check_flag: { Args: { p_id: string }; Returns: boolean }
+      [_ in never]: never
     }
     Enums: {
       [_ in never]: never
