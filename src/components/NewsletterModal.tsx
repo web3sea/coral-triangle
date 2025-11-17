@@ -5,6 +5,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { z } from "zod";
+
+const newsletterSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+});
 
 interface NewsletterModalProps {
   open: boolean;
@@ -22,9 +28,12 @@ export const NewsletterModal = ({ open, onOpenChange }: NewsletterModalProps) =>
     setIsSubmitting(true);
 
     try {
+      // Validate inputs
+      const validatedData = newsletterSchema.parse({ name, email });
+
       const { error } = await supabase
         .from("ct_newsletter_subscribers")
-        .insert([{ name, email }]);
+        .insert([{ name: validatedData.name, email: validatedData.email }]);
 
       if (error) throw error;
 
@@ -37,11 +46,19 @@ export const NewsletterModal = ({ open, onOpenChange }: NewsletterModalProps) =>
       setEmail("");
       onOpenChange(false);
     } catch (error: any) {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to subscribe. Please try again.",
-        variant: "destructive",
-      });
+      if (error instanceof z.ZodError) {
+        toast({
+          title: "Validation Error",
+          description: error.errors[0].message,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: error.message || "Failed to subscribe. Please try again.",
+          variant: "destructive",
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }
