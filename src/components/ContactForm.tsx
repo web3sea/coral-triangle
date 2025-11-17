@@ -1,4 +1,3 @@
-
 import { Mail, MessageSquare, Calendar } from "lucide-react";
 import mixpanel from "mixpanel-browser";
 
@@ -80,24 +79,23 @@ export const ContactForm = () => {
               <a
                 href="mailto:hello@coraltriangle.io?subject=Inquiry%20from%20Website&body=Hi%20Coral%20Triangle%20AI%20team,%0D%0A%0D%0AI'm%20interested%20in%20learning%20more%20about%20your%20AI%20automation%20services.%0D%0A%0D%0APlease%20contact%20me%20at%20your%20earliest%20convenience.%0D%0A%0D%0AThank%20you!"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
-              onClick={(e) => {
-                if (import.meta.env.DEV) {
-                  console.log('Email link clicked');
-                }
-                // Let the mailto link try to open first, then fallback after a delay
-                setTimeout(() => {
-                  const email = 'hello@coraltriangle.io';
-                  navigator.clipboard.writeText(email).then(() => {
-                    if (import.meta.env.DEV) {
-                      console.log('Email copied to clipboard as fallback');
-                    }
-                  }).catch(() => {
-                    if (import.meta.env.DEV) {
-                      console.log('Could not copy email to clipboard');
-                    }
-                  });
-                }, 1000);
-              }}
+                onClick={(e) => {
+                  if (import.meta.env.DEV) {
+                    console.log('Email link clicked');
+                  }
+                  setTimeout(() => {
+                    const email = 'hello@coraltriangle.io';
+                    navigator.clipboard.writeText(email).then(() => {
+                      if (import.meta.env.DEV) {
+                        console.log('Email copied to clipboard as fallback');
+                      }
+                    }).catch(() => {
+                      if (import.meta.env.DEV) {
+                        console.log('Could not copy email to clipboard');
+                      }
+                    });
+                  }, 1000);
+                }}
               >
                 <Mail className="h-8 w-8 text-white stroke-1" />
               </a>
@@ -107,14 +105,14 @@ export const ContactForm = () => {
             <div className="flex flex-col items-center">
               <a
                 onClick={onTrackLinkMeeting}
-                href="https://cal.com/coraltriangle-uat/discovery"
+                href="https://calendly.com/coraltriangleai/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
               >
                 <Calendar className="h-8 w-8 text-white stroke-1" />
               </a>
-              <span className="mt-3 text-sm text-brand-cream/80">Book a Call</span>
+              <span className="mt-3 text-sm text-brand-cream/80">Book a call</span>
             </div>
           </div>
         </div>
