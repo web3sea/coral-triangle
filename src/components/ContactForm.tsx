@@ -29,16 +29,8 @@ const TelegramIcon = () => (
 );
 
 export const ContactForm = () => {
-
-  const DEFAULT_LINK = {
-    MEETING: 'https://cal.com/coraltriangle/hello',
-    TELEGRAM: 'https://t.me/CoralTriangleBot',
-    WHATSAPP: 'https://wa.me/18132130349',
-    EMAIL: 'hello@coraltriangle.io'
-  }
-
   const onTrackLinkMeeting = () => {
-    mixpanel.track('Meeting Link Clicked', { link_name: DEFAULT_LINK.MEETING })
+    mixpanel.track('Meeting Link Clicked', { link_name: 'Meeting Link' })
   }
 
   return (
@@ -59,10 +51,10 @@ export const ContactForm = () => {
             </p>
           </div>
 
-          <div className="pt-8 grid grid-cols-2 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
-            {/* <div className="flex flex-col items-center">
+          <div className="pt-8 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
+            <div className="flex flex-col items-center">
               <a
-                href={DEFAULT_LINK.TELEGRAM}
+                href="https://t.me/CoralTriangleBot"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
@@ -70,11 +62,11 @@ export const ContactForm = () => {
                 <TelegramIcon />
               </a>
               <span className="mt-3 text-sm text-brand-cream/80">Telegram</span>
-            </div> */}
+            </div>
 
             <div className="flex flex-col items-center">
               <a
-                href={DEFAULT_LINK.WHATSAPP}
+                href="https://wa.me/18133300617"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
@@ -86,13 +78,13 @@ export const ContactForm = () => {
 
             <div className="flex flex-col items-center">
               <a
-                href={`mailto:${DEFAULT_LINK.EMAIL}?subject=Inquiry%20from%20Website&body=Hi%20Coral%20Triangle%20AI%20team,%0D%0A%0D%0AI'm%20interested%20in%20learning%20more%20about%20your%20AI%20automation%20services.%0D%0A%0D%0APlease%20contact%20me%20at%20your%20earliest%20convenience.%0D%0A%0D%0AThank%20you!`}
+                href="mailto:hello@coraltriangle.io?subject=Inquiry%20from%20Website&body=Hi%20Coral%20Triangle%20AI%20team,%0D%0A%0D%0AI'm%20interested%20in%20learning%20more%20about%20your%20AI%20automation%20services.%0D%0A%0D%0APlease%20contact%20me%20at%20your%20earliest%20convenience.%0D%0A%0D%0AThank%20you!"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
                 onClick={(e) => {
                   console.log('Email link clicked');
                   // Let the mailto link try to open first, then fallback after a delay
                   setTimeout(() => {
-                    const email = DEFAULT_LINK.EMAIL;
+                    const email = 'hello@coraltriangle.io';
                     navigator.clipboard.writeText(email).then(() => {
                       console.log('Email copied to clipboard as fallback');
                     }).catch(() => {
@@ -109,7 +101,7 @@ export const ContactForm = () => {
             <div className="flex flex-col items-center">
               <a
                 onClick={onTrackLinkMeeting}
-                href={DEFAULT_LINK.MEETING}
+                href="https://cal.com/coraltriangle-uat/discovery"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
