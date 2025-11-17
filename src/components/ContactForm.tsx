@@ -29,8 +29,27 @@ const TelegramIcon = () => (
 );
 
 export const ContactForm = () => {
+
+  const DEFAULT_LINK = {
+    MEETING: {
+      label: 'Book a Call',
+      value: 'https://cal.com/coraltriangle/hello',
+      link: 'https://cal.com/coraltriangle/hello'
+    },
+    WHATSAPP: {
+      label: 'WhatsApp',
+      value: '+1813-213-0349',
+      link: 'https://wa.me/18132130349'
+    },
+    EMAIL: {
+      label: 'Email',
+      value: 'hello@coraltriangle.io',
+      link: 'mailto:hello@coraltriangle.io'
+    }
+  }
+
   const onTrackLinkMeeting = () => {
-    mixpanel.track('Meeting Link Clicked', { link_name: 'Meeting Link' })
+    mixpanel.track('Meeting Link Clicked', { link_name: DEFAULT_LINK.MEETING.label })
   }
 
   return (
@@ -51,10 +70,10 @@ export const ContactForm = () => {
             </p>
           </div>
 
-          <div className="pt-8 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
-            <div className="flex flex-col items-center">
+          <div className="pt-8 grid grid-cols-2 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+            {/* <div className="flex flex-col items-center">
               <a
-                href="https://t.me/CoralTriangleBot"
+                href={DEFAULT_LINK.TELEGRAM}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
@@ -62,11 +81,11 @@ export const ContactForm = () => {
                 <TelegramIcon />
               </a>
               <span className="mt-3 text-sm text-brand-cream/80">Telegram</span>
-            </div>
+            </div> */}
 
             <div className="flex flex-col items-center">
               <a
-                href="https://wa.me/18133300617"
+                href={DEFAULT_LINK.WHATSAPP.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
@@ -74,17 +93,18 @@ export const ContactForm = () => {
                 <MessageSquare className="h-8 w-8 text-white stroke-1" />
               </a>
               <span className="mt-3 text-sm text-brand-cream/80">WhatsApp</span>
+              <span className="text-sm text-brand-cream/80">{DEFAULT_LINK.WHATSAPP.value}</span>
             </div>
 
             <div className="flex flex-col items-center">
               <a
-                href="mailto:hello@coraltriangle.io?subject=Inquiry%20from%20Website&body=Hi%20Coral%20Triangle%20AI%20team,%0D%0A%0D%0AI'm%20interested%20in%20learning%20more%20about%20your%20AI%20automation%20services.%0D%0A%0D%0APlease%20contact%20me%20at%20your%20earliest%20convenience.%0D%0A%0D%0AThank%20you!"
+                href={`mailto:${DEFAULT_LINK.EMAIL.value}?subject=Inquiry%20from%20Website&body=Hi%20Coral%20Triangle%20AI%20team,%0D%0A%0D%0AI'm%20interested%20in%20learning%20more%20about%20your%20AI%20automation%20services.%0D%0A%0D%0APlease%20contact%20me%20at%20your%20earliest%20convenience.%0D%0A%0D%0AThank%20you!`}
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
                 onClick={(e) => {
                   console.log('Email link clicked');
                   // Let the mailto link try to open first, then fallback after a delay
                   setTimeout(() => {
-                    const email = 'hello@coraltriangle.io';
+                    const email = DEFAULT_LINK.EMAIL.value;
                     navigator.clipboard.writeText(email).then(() => {
                       console.log('Email copied to clipboard as fallback');
                     }).catch(() => {
@@ -96,12 +116,13 @@ export const ContactForm = () => {
                 <Mail className="h-8 w-8 text-white stroke-1" />
               </a>
               <span className="mt-3 text-sm text-brand-cream/80">Email</span>
+              <span className="text-sm text-brand-cream/80">{DEFAULT_LINK.EMAIL.value}</span>
             </div>
 
             <div className="flex flex-col items-center">
               <a
                 onClick={onTrackLinkMeeting}
-                href="https://cal.com/coraltriangle-uat/discovery"
+                href={DEFAULT_LINK.MEETING.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-20 h-20 rounded-full bg-brand-cream/10 hover:bg-brand-cream/20 transition-colors duration-300 flex items-center justify-center group"
@@ -109,6 +130,7 @@ export const ContactForm = () => {
                 <Calendar className="h-8 w-8 text-white stroke-1" />
               </a>
               <span className="mt-3 text-sm text-brand-cream/80">Book a Call</span>
+              <span className="text-sm text-brand-cream/80">{DEFAULT_LINK.MEETING.value}</span>
             </div>
           </div>
         </div>
