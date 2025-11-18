@@ -132,7 +132,7 @@ export const NewsletterModal = ({ open, onOpenChange }: NewsletterModalProps) =>
             className="w-full bg-brand-turquoise hover:bg-brand-turquoise/90 text-white"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Submitting..." : "Submit"}
+            {isSubmitting ? "Subscribing..." : "Subscribe"}
           </Button>
         </form>
       </DialogContent>
