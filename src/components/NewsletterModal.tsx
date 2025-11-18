@@ -93,7 +93,7 @@ export const NewsletterModal = ({ open, onOpenChange }: NewsletterModalProps) =>
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md bg-white">
+      <DialogContent className="sm:max-w-md bg-white max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-gray-900">
             Subscribe to Our Coral Triangle Newsletter
@@ -102,7 +102,7 @@ export const NewsletterModal = ({ open, onOpenChange }: NewsletterModalProps) =>
             Get updates on reef health, conservation strategies, and emerging research from across the Coral Triangle!
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-6 mt-6">
+        <form onSubmit={handleSubmit} className="space-y-6 mt-6 pb-2">
           <div className="space-y-2">
             <Label htmlFor="name" className="text-sm font-medium text-gray-900">
               Name
@@ -133,7 +133,7 @@ export const NewsletterModal = ({ open, onOpenChange }: NewsletterModalProps) =>
           </div>
           <Button 
             type="submit" 
-            className="w-full bg-brand-turquoise hover:bg-brand-turquoise/90 text-white font-semibold"
+            className="w-full bg-brand-turquoise hover:bg-brand-turquoise/90 text-white font-semibold h-11"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Subscribing..." : "Subscribe"}
