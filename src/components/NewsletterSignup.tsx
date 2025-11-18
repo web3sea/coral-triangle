@@ -10,6 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 export const NewsletterSignup = () => {
   const [name, setName] = useState("");
@@ -22,8 +23,16 @@ export const NewsletterSignup = () => {
     setIsSubmitting(true);
 
     try {
-      // Add your newsletter signup logic here
-      console.log("Newsletter signup:", { name, email });
+      const { error } = await supabase
+        .from('ct_newsletter_subscribers')
+        .insert([
+          {
+            name,
+            email,
+          }
+        ]);
+
+      if (error) throw error;
       
       toast({
         title: "Success!",
