@@ -77,7 +77,7 @@ const Index = () => {
       </section>
 
       {/* Map Section */}
-      <section className="pt-4 pb-16 px-4 bg-entreprenology-bg/90">
+      <section className="py-16 px-4 bg-entreprenology-bg/90">
         <div className="container mx-auto">
           <div className="text-center mb-8">
             <NewsletterSignup />
