@@ -174,7 +174,7 @@ export const NewsletterModal = ({ open, onOpenChange }: NewsletterModalProps) =>
             </div>
             <Button 
               type="submit" 
-              className="w-full bg-brand-turquoise hover:bg-brand-turquoise/90 text-white font-semibold h-11"
+              className="w-full bg-[#79B8B0] hover:bg-[#79B8B0]/90 text-white font-semibold h-11 px-6 z-10 relative"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Subscribing..." : "Subscribe"}
