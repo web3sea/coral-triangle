@@ -77,9 +77,9 @@ const Index = () => {
           <div className="mt-8">
             <Button
               onClick={() => setNewsletterOpen(true)}
-              className="bg-brand-turquoise hover:bg-brand-turquoise/90 text-white px-8 py-6 text-lg"
+              className="bg-brand-tealblue hover:bg-brand-tealblue/90 text-white px-8 py-6 text-lg"
             >
-              Subscribe to Our Coral Reef Conservation Newsletter
+              Subscribe to the Coral Triangle Newsletter
             </Button>
           </div>
         </div>
