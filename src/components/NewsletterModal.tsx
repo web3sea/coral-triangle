@@ -102,34 +102,38 @@ export const NewsletterModal = ({ open, onOpenChange }: NewsletterModalProps) =>
             Get updates on reef health, conservation strategies, and emerging research from across the Coral Triangle!
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+        <form onSubmit={handleSubmit} className="space-y-6 mt-6">
           <div className="space-y-2">
-            <Label htmlFor="name" className="text-gray-700">Name</Label>
+            <Label htmlFor="name" className="text-sm font-medium text-gray-900">
+              Name
+            </Label>
             <Input
               id="name"
               type="text"
-              placeholder="Your name"
+              placeholder="Enter your name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="bg-white border-gray-300"
+              className="w-full"
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-gray-700">Email</Label>
+            <Label htmlFor="email" className="text-sm font-medium text-gray-900">
+              Email
+            </Label>
             <Input
               id="email"
               type="email"
-              placeholder="your@email.com"
+              placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="bg-white border-gray-300"
+              className="w-full"
             />
           </div>
           <Button 
             type="submit" 
-            className="w-full bg-brand-turquoise hover:bg-brand-turquoise/90 text-white"
+            className="w-full bg-brand-turquoise hover:bg-brand-turquoise/90 text-white font-semibold"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Subscribing..." : "Subscribe"}
