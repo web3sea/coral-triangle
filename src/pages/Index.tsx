@@ -12,6 +12,7 @@ import { FreedivingSchoolSection } from "@/components/FreedivingSchoolSection";
 import { LiveaboardSection } from "@/components/LiveaboardSection";
 import { CustomSolutionsSection } from "@/components/CustomSolutionsSection";
 import { ProgressiveContent } from "@/components/ProgressiveContent";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { useIsMobile } from "@/hooks/use-mobile";
 import '@n8n/chat/style.css';
 import mixpanel from "mixpanel-browser";
@@ -78,6 +79,9 @@ const Index = () => {
       {/* Map Section */}
       <section className="py-16 px-4 bg-entreprenology-bg/90">
         <div className="container mx-auto">
+          <div className="text-center mb-8">
+            <NewsletterSignup />
+          </div>
           <div className="relative max-w-5xl mx-auto rounded-lg overflow-hidden shadow-2xl">
             <img
               src="/lovable-uploads/fdd60cea-8784-43c0-b786-e0598236a0a6.png"
