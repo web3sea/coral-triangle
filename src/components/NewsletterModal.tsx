@@ -5,6 +5,20 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { z } from "zod";
+
+const newsletterSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(1, { message: "Name is required" })
+    .max(100, { message: "Name must be less than 100 characters" })
+    .regex(/^[a-zA-Z\s'-]+$/, { message: "Name contains invalid characters" }),
+  email: z.string()
+    .trim()
+    .email({ message: "Invalid email address" })
+    .max(255, { message: "Email must be less than 255 characters" })
+    .toLowerCase()
+});
 
 interface NewsletterModalProps {
   open: boolean;
@@ -22,16 +36,19 @@ export const NewsletterModal = ({ open, onOpenChange }: NewsletterModalProps) =>
     setIsSubmitting(true);
     
     try {
-      // Save to database
+      // Validate inputs
+      const validatedData = newsletterSchema.parse({ name, email });
+      
+      // Save to database with validated data
       const { data, error } = await supabase
         .from('ct_newsletter_subscribers')
-        .insert([{ name, email }])
+        .insert([{ name: validatedData.name, email: validatedData.email }])
         .select()
         .single();
 
       if (error) throw error;
 
-      // Send to webhook
+      // Send validated data to webhook
       await fetch('https://hook.us2.make.com/uuiq1jh0ydvoymm9ojp247dsso41mxb4', {
         method: 'POST',
         headers: {
@@ -50,14 +67,25 @@ export const NewsletterModal = ({ open, onOpenChange }: NewsletterModalProps) =>
       setEmail("");
       onOpenChange(false);
     } catch (error: any) {
-      console.error("Newsletter signup error:", error);
-      toast({
-        title: "Error",
-        description: error.message?.includes("unique") 
-          ? "This email is already subscribed." 
-          : "Failed to subscribe. Please try again.",
-        variant: "destructive",
-      });
+      if (error instanceof z.ZodError) {
+        toast({
+          title: "Validation Error",
+          description: error.errors[0].message,
+          variant: "destructive",
+        });
+      } else if (error.message?.includes("unique")) {
+        toast({
+          title: "Already Subscribed",
+          description: "This email is already subscribed.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to subscribe. Please try again.",
+          variant: "destructive",
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }
