@@ -3,6 +3,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 interface NewsletterModalProps {
   open: boolean;
@@ -13,21 +15,52 @@ export const NewsletterModal = ({ open, onOpenChange }: NewsletterModalProps) =>
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // TODO: Add form submission logic here
-    console.log("Newsletter signup:", { name, email });
-    
-    // Reset form
-    setTimeout(() => {
+    try {
+      // Save to database
+      const { data, error } = await supabase
+        .from('ct_newsletter_subscribers')
+        .insert([{ name, email }])
+        .select()
+        .single();
+
+      if (error) throw error;
+
+      // Send to webhook
+      await fetch('https://hook.us2.make.com/uuiq1jh0ydvoymm9ojp247dsso41mxb4', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      toast({
+        title: "Success!",
+        description: "You've been subscribed to our newsletter.",
+      });
+
+      // Reset form
       setName("");
       setEmail("");
-      setIsSubmitting(false);
       onOpenChange(false);
-    }, 1000);
+    } catch (error: any) {
+      console.error("Newsletter signup error:", error);
+      toast({
+        title: "Error",
+        description: error.message?.includes("unique") 
+          ? "This email is already subscribed." 
+          : "Failed to subscribe. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
