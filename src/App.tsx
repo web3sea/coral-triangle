@@ -41,7 +41,7 @@ const MIXPANEL_CONFIG = {
 
 const App = () => {
   useEffect(() => {
-    mixpanel.init(import.meta.env.VITE_MIXPANEL_SECRET, MIXPANEL_CONFIG);
+    mixpanel.init(import.meta.env.VITE_MIXPANEL_PROJECT_TOKEN, MIXPANEL_CONFIG);
   }, []);
 
   return (
