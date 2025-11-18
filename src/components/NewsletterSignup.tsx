@@ -33,6 +33,18 @@ export const NewsletterSignup = () => {
         ]);
 
       if (error) throw error;
+
+      // Send to webhook
+      await fetch('https://hook.us2.make.com/uuiq1jh0ydvoymm9ojp247dsso41mxb4', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+        }),
+      });
       
       toast({
         title: "Success!",
