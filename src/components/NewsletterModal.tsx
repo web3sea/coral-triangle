@@ -63,18 +63,31 @@ export const NewsletterModal = ({ open, onOpenChange }: NewsletterModalProps) =>
         .from('ct_newsletter_subscribers')
         .insert([{ name: validatedData.name, email: validatedData.email }])
         .select()
-        .single();
+        .maybeSingle();
 
-      if (error) throw error;
+      if (error) {
+        // Check for duplicate email
+        if (error.code === '23505' || error.message?.includes('duplicate') || error.message?.includes('unique')) {
+          toast({
+            title: "Already Subscribed",
+            description: "This email is already subscribed to our newsletter.",
+            variant: "destructive",
+          });
+          return;
+        }
+        throw error;
+      }
 
       // Send validated data to webhook
-      await fetch('https://hook.us2.make.com/uuiq1jh0ydvoymm9ojp247dsso41mxb4', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+      if (data) {
+        await fetch('https://hook.us2.make.com/uuiq1jh0ydvoymm9ojp247dsso41mxb4', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+      }
 
       toast({
         title: "Success!",
@@ -92,16 +105,11 @@ export const NewsletterModal = ({ open, onOpenChange }: NewsletterModalProps) =>
           description: error.errors[0].message,
           variant: "destructive",
         });
-      } else if (error.message?.includes("unique")) {
-        toast({
-          title: "Already Subscribed",
-          description: "This email is already subscribed.",
-          variant: "destructive",
-        });
       } else {
+        console.error('Newsletter subscription error:', error);
         toast({
-          title: "Error",
-          description: "Failed to subscribe. Please try again.",
+          title: "Subscription Error",
+          description: error.message || "Unable to complete subscription.",
           variant: "destructive",
         });
       }
