@@ -12,7 +12,6 @@ import { FreedivingSchoolSection } from "@/components/FreedivingSchoolSection";
 import { LiveaboardSection } from "@/components/LiveaboardSection";
 import { CustomSolutionsSection } from "@/components/CustomSolutionsSection";
 import { ProgressiveContent } from "@/components/ProgressiveContent";
-import { NewsletterModal } from "@/components/NewsletterModal";
 import { useIsMobile } from "@/hooks/use-mobile";
 import '@n8n/chat/style.css';
 import mixpanel from "mixpanel-browser";
@@ -42,7 +41,6 @@ const ServiceCard = ({
 const Index = () => {
   const isMobile = useIsMobile();
   const location = useLocation();
-  const [newsletterOpen, setNewsletterOpen] = React.useState(false);
 
   React.useEffect(() => {
     if (location.pathname === "/") {
@@ -74,18 +72,8 @@ const Index = () => {
             We help dive operators automate their workflows and enhance guest
             experiences. Spend less time on admin, and more time underwater.
           </p>
-          <div className="mt-8">
-            <Button
-              onClick={() => setNewsletterOpen(true)}
-              className="bg-brand-tealblue hover:bg-brand-tealblue/90 text-white px-8 py-6 text-lg"
-            >
-              Subscribe to the Coral Triangle Newsletter
-            </Button>
-          </div>
         </div>
       </section>
-
-      <NewsletterModal open={newsletterOpen} onOpenChange={setNewsletterOpen} />
 
       {/* Map Section */}
       <section className="py-16 px-4 bg-entreprenology-bg/90">
