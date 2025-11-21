@@ -12,6 +12,7 @@ import Discovery from "./pages/Discovery";
 import Intake from "./pages/Intake";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import CookieSettings from "./pages/CookieSettings";
 
 // Import automations pages
 import HomestayCoPliot from "./pages/agents/HomestayCoPliot";
@@ -72,6 +73,7 @@ const App = () => {
                 <Route path="/intake" element={<Intake />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms-of-service" element={<TermsOfService />} />
+                <Route path="/cookie-settings" element={<CookieSettings />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>

@@ -33,6 +33,12 @@ export const Footer = () => {
           >
             Terms of Service
           </Link>
+          <Link
+            to="/cookie-settings"
+            className="text-sm text-gray-300 hover:text-entreprenology-turquoise transition-colors"
+          >
+            Cookie Settings
+          </Link>
         </div>
 
         {!isMobile && (
