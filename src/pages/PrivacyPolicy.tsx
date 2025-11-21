@@ -78,6 +78,9 @@ const PrivacyPolicy = () => {
                 </span>
               </li>
             </ul>
+            <p className="mt-6 text-gray-300 italic">
+              All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
+            </p>
           </section>
 
           <section className="border-t border-entreprenology-coral/40 pt-8">
