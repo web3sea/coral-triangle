@@ -26,6 +26,7 @@ import VoiceAgentQualifier from "./pages/automations/VoiceAgentQualifier";
 import MarketingDripCampaign from "./pages/automations/MarketingDripCampaign";
 import mixpanel from "mixpanel-browser";
 import { useEffect } from "react";
+import { CookieConsent } from "./components/CookieConsent";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +50,7 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <CookieConsent />
         <BrowserRouter>
           <div className="flex flex-col min-h-screen">
             <div className="flex-grow">
