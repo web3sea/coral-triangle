@@ -1,5 +1,6 @@
 import { Mail, MessageSquare, Calendar } from "lucide-react";
 import mixpanel from "mixpanel-browser";
+import { NewsletterSignup } from "./NewsletterSignup";
 
 const TelegramIcon = () => (
   <svg
@@ -114,6 +115,10 @@ export const ContactForm = () => {
               </a>
               <span className="mt-3 text-sm text-brand-cream/80">Book a call</span>
             </div>
+          </div>
+
+          <div className="pt-8 flex justify-center">
+            <NewsletterSignup />
           </div>
         </div>
       </div>
