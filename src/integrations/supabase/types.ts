@@ -14,6 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
+      blog_posts: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          published_date: string
+          title: string
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          published_date?: string
+          title: string
+          url: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          published_date?: string
+          title?: string
+          url?: string
+        }
+        Relationships: []
+      }
       ct_newsletter_subscribers: {
         Row: {
           created_at: string

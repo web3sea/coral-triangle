@@ -13,6 +13,7 @@ import Intake from "./pages/Intake";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookieSettings from "./pages/CookieSettings";
+import Blog from "./pages/Blog";
 
 // Import automations pages
 import HomestayCoPliot from "./pages/agents/HomestayCoPliot";
@@ -57,6 +58,7 @@ const App = () => {
             <div className="flex-grow">
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route path="/blog" element={<Blog />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/automations/guest-booking-assistant" element={<GuestBookingAssistant />} />
                 <Route path="/automations/sales-admin" element={<SalesAdminCoPliot />} />

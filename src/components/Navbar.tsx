@@ -59,6 +59,15 @@ export const Navbar = () => {
               Home
             </Link>
 
+            {/* Blog Link */}
+            <Link
+              to="/blog"
+              className={`text-sm font-medium transition-colors hover:text-entreprenology-turquoise ${isActive("/blog") ? "text-entreprenology-turquoise" : "text-white"
+                }`}
+            >
+              Blog
+            </Link>
+
             {/* Case Studies Link */}
             <Link
               to="/case-studies"
@@ -198,6 +207,16 @@ export const Navbar = () => {
               onClick={() => setMenuOpen(false)}
             >
               Home
+            </Link>
+
+            {/* Blog Link in Mobile Menu */}
+            <Link
+              to="/blog"
+              className={`block text-base font-medium ${isActive("/blog") ? "text-entreprenology-turquoise" : "text-white"
+                }`}
+              onClick={() => setMenuOpen(false)}
+            >
+              Blog
             </Link>
 
             {/* Case Studies Link in Mobile Menu */}
