@@ -92,10 +92,11 @@ const Blog = () => {
                   </CardHeader>
                   <CardContent className="space-y-6">
                     {post.description && (
-                      <p className="text-gray-300 text-sm line-clamp-3">
+                      <p className="text-gray-300 text-sm line-clamp-3 mb-4">
                         {post.description}
                       </p>
                     )}
+                    <div className="pt-2"></div>
                     <a href={post.url} target="_blank" rel="noopener noreferrer">
                       <Button
                         variant="outline"
