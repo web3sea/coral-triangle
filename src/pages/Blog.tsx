@@ -90,7 +90,7 @@ const Blog = () => {
                       {format(new Date(post.published_date), "MMMM d, yyyy")}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-4">
+                  <CardContent className="space-y-6">
                     {post.description && (
                       <p className="text-gray-300 text-sm line-clamp-3">
                         {post.description}
