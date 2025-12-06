@@ -123,7 +123,7 @@ const Blog = () => {
       </main>
 
       <Dialog open={!!selectedPost} onOpenChange={(open) => !open && setSelectedPost(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-white border-gray-200">
+        <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto bg-white border-gray-200">
           <DialogHeader>
             <DialogTitle className="text-2xl text-entreprenology-bg pr-8">
               {selectedPost?.title}
