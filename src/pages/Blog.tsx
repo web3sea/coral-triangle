@@ -123,25 +123,25 @@ const Blog = () => {
       </main>
 
       <Dialog open={!!selectedPost} onOpenChange={(open) => !open && setSelectedPost(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-entreprenology-bg border-entreprenology-coral/20">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-white border-gray-200">
           <DialogHeader>
-            <DialogTitle className="text-2xl text-entreprenology-turquoise pr-8">
+            <DialogTitle className="text-2xl text-entreprenology-bg pr-8">
               {selectedPost?.title}
             </DialogTitle>
             {selectedPost && (
-              <p className="text-sm text-gray-400 flex items-center gap-2">
+              <p className="text-sm text-gray-500 flex items-center gap-2">
                 <Calendar className="h-4 w-4" />
                 {format(new Date(selectedPost.published_date), "MMMM d, yyyy")}
               </p>
             )}
           </DialogHeader>
           <div 
-            className="prose prose-invert prose-lg max-w-none mt-4
-              prose-headings:text-entreprenology-turquoise
+            className="prose prose-lg max-w-none mt-4
+              prose-headings:text-entreprenology-bg
               prose-a:text-entreprenology-coral prose-a:no-underline hover:prose-a:underline
-              prose-strong:text-white
-              prose-p:text-gray-300
-              prose-li:text-gray-300"
+              prose-strong:text-entreprenology-bg
+              prose-p:text-gray-700
+              prose-li:text-gray-700"
             dangerouslySetInnerHTML={{ __html: selectedPost?.blog_html || "" }}
           />
         </DialogContent>
