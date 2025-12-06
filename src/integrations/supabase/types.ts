@@ -16,28 +16,28 @@ export type Database = {
     Tables: {
       blog_posts: {
         Row: {
+          blog_html: string
           created_at: string
           description: string | null
           id: string
           published_date: string
           title: string
-          url: string
         }
         Insert: {
+          blog_html: string
           created_at?: string
           description?: string | null
           id?: string
           published_date?: string
           title: string
-          url: string
         }
         Update: {
+          blog_html?: string
           created_at?: string
           description?: string | null
           id?: string
           published_date?: string
           title?: string
-          url?: string
         }
         Relationships: []
       }

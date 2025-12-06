@@ -1,23 +1,32 @@
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Calendar } from "lucide-react";
+import { BookOpen, Calendar, X } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { format } from "date-fns";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 interface BlogPost {
   id: string;
   title: string;
-  url: string;
+  blog_html: string;
   description: string | null;
   published_date: string;
   created_at: string;
 }
 
 const Blog = () => {
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+
   const { data: posts, isLoading, error } = useQuery({
     queryKey: ["blog-posts"],
     queryFn: async () => {
@@ -97,15 +106,14 @@ const Blog = () => {
                       </p>
                     )}
                     <div className="pt-2"></div>
-                    <a href={post.url} target="_blank" rel="noopener noreferrer">
-                      <Button
-                        variant="outline"
-                        className="w-full border-entreprenology-turquoise/40 text-entreprenology-turquoise hover:bg-entreprenology-turquoise/10"
-                      >
-                        Read Article
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </Button>
-                    </a>
+                    <Button
+                      variant="outline"
+                      className="w-full border-entreprenology-turquoise/40 text-entreprenology-turquoise hover:bg-entreprenology-turquoise/10"
+                      onClick={() => setSelectedPost(post)}
+                    >
+                      Read Article
+                      <BookOpen className="ml-2 h-4 w-4" />
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
@@ -113,6 +121,31 @@ const Blog = () => {
           )}
         </div>
       </main>
+
+      <Dialog open={!!selectedPost} onOpenChange={(open) => !open && setSelectedPost(null)}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-entreprenology-bg border-entreprenology-coral/20">
+          <DialogHeader>
+            <DialogTitle className="text-2xl text-entreprenology-turquoise pr-8">
+              {selectedPost?.title}
+            </DialogTitle>
+            {selectedPost && (
+              <p className="text-sm text-gray-400 flex items-center gap-2">
+                <Calendar className="h-4 w-4" />
+                {format(new Date(selectedPost.published_date), "MMMM d, yyyy")}
+              </p>
+            )}
+          </DialogHeader>
+          <div 
+            className="prose prose-invert prose-lg max-w-none mt-4
+              prose-headings:text-entreprenology-turquoise
+              prose-a:text-entreprenology-coral prose-a:no-underline hover:prose-a:underline
+              prose-strong:text-white
+              prose-p:text-gray-300
+              prose-li:text-gray-300"
+            dangerouslySetInnerHTML={{ __html: selectedPost?.blog_html || "" }}
+          />
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>
