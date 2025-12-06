@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import DOMPurify from "dompurify";
 import { supabase } from "@/integrations/supabase/client";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -142,7 +143,7 @@ const Blog = () => {
               prose-strong:text-entreprenology-bg
               prose-p:text-gray-700
               prose-li:text-gray-700"
-            dangerouslySetInnerHTML={{ __html: selectedPost?.blog_html || "" }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(selectedPost?.blog_html || "") }}
           />
         </DialogContent>
       </Dialog>
