@@ -124,16 +124,8 @@ const Blog = () => {
 
       <Dialog open={!!selectedPost} onOpenChange={(open) => !open && setSelectedPost(null)}>
         <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto bg-white border-gray-200">
-          <DialogHeader>
-            <DialogTitle className="text-2xl text-entreprenology-bg pr-8">
-              {selectedPost?.title}
-            </DialogTitle>
-            {selectedPost && (
-              <p className="text-sm text-gray-500 flex items-center gap-2">
-                <Calendar className="h-4 w-4" />
-                {format(new Date(selectedPost.published_date), "MMMM d, yyyy")}
-              </p>
-            )}
+        <DialogHeader className="sr-only">
+            <DialogTitle>Blog Article</DialogTitle>
           </DialogHeader>
           <div 
             className="prose prose-lg max-w-none mt-4
