@@ -5,7 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Calendar, X } from "lucide-react";
+import { BookOpen, Calendar } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { format } from "date-fns";
 import {
@@ -14,6 +14,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { NewsletterForm } from "@/components/NewsletterForm";
 
 interface BlogPost {
   id: string;
@@ -136,6 +137,9 @@ const Blog = () => {
               prose-li:text-gray-700"
             dangerouslySetInnerHTML={{ __html: selectedPost?.blog_html || "" }}
           />
+          <div className="mt-8 pt-6 border-t border-gray-200">
+            <NewsletterForm variant="light" />
+          </div>
         </DialogContent>
       </Dialog>
 
